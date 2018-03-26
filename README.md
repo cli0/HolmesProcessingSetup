@@ -51,21 +51,7 @@ cd /home/vagrant/HolmesProcessing/go/src/github.com/HolmesProcessing/Holmes-Stor
 
 **Holmes-Totem**
 
-Holmes-TOTEM is an orchestrator and central point of reference for the feature extraction services. It allows you to upload the configuration files for the individual services to Holmes-Storage. You can upload the files automatically using the following script:
-
-```shell
-cd config
-./upload_configs.sh ${storageIP}:${storagePath}
-```
-
-In order to use these uploaded configuration files, use the script:
-
-```shell
-cd config
-./compose_download_conf.sh ${storageIP}:${storagePath}
-```
-
-In our specific case, $storageIP is 127.0.0.1 and $storagePath is the port number 8016 for Storage.
+Holmes-TOTEM is an orchestrator and central point of reference for the feature extraction services. It allows you to upload the configuration files for the individual services to Holmes-Storage.
 
 To run the Totem planner (use tmux):
 ```shell
