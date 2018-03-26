@@ -1,0 +1,14 @@
+[Unit]
+Description=Run Totem Planner
+
+[Service]
+Type=forking
+User=vagrant
+Group=vagrant
+WorkingDirectory=/home/vagrant/HolmesProcessing/Holmes-Totem/target/scala-2.11/
+ExecStart=/usr/bin/java -jar /home/vagrant/HolmesProcessing/Holmes-Totem/target/scala-2.11/totem-assembly-0.5.0.jar
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

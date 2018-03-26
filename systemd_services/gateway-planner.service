@@ -1,0 +1,12 @@
+[Unit]
+Description=Run Gateway Planner
+
+[Service]
+Type=simple
+WorkingDirectory=/home/vagrant/HolmesProcessing/go/src/github.com/HolmesProcessing/Holmes-Gateway/
+ExecStart=/home/vagrant/HolmesProcessing/go/src/github.com/HolmesProcessing/Holmes-Storage/Holmes-Gateway --config config/gateway.conf
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,10 @@
+[Unit]
+Description= Start Fake-S3
+
+[Service]
+ExecStart=/usr/local/bin/fakes3 -r /mnt/fakes3_root -p 4567
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

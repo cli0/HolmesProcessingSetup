@@ -1,0 +1,13 @@
+[Unit]
+Description=Run Storage Planner
+
+[Service]
+Type=simple
+User=vagrant
+Group=vagrant
+WorkingDirectory=/home/vagrant/HolmesProcessing/go/src/github.com/HolmesProcessing/Holmes-Storage/
+ExecStart= /home/vagrant/HolmesProcessing/go/src/github.com/HolmesProcessing/Holmes-Storage/Holmes-Storage --config=/home/vagrant/HolmesProcessing/go/src/github.com/HolmesProcessing/Holmes-Storage/config/storage.conf
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

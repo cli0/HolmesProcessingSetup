@@ -1,0 +1,14 @@
+[Unit]
+Description=Setting up ObjectStorage for Holmes
+
+[Service]
+Type=simple
+User=vagrant
+Group=vagrant
+WorkingDirectory=/home/vagrant/HolmesProcessing/go/src/github.com/HolmesProcessing/Holmes-Storage/
+ExecStart= /home/vagrant/HolmesProcessing/go/src/github.com/HolmesProcessing/Holmes-Storage/Holmes-Storage --config=/home/vagrant/MalwareZoo/Holmes-Storage/src/git-int.aisec.fraunhofer.de/malwarezoo/storage/config/storage.conf --objSetup
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

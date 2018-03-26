@@ -1,0 +1,5 @@
+# ignore file list
+
+.vagrant/*
+*.log
+
