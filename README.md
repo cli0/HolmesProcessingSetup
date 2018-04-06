@@ -30,6 +30,18 @@ cd /home/vagrant/Setup/
 
 At the moment you can't run the services though systemd so you will have to instantiate them manually. It is recommened to use [tmux](https://danielmiessler.com/study/tmux/#gs.zZb0q7U) to run the services in the background.
 
+**Minio Setup**
+
+After Storage is successfully running in the background, you need to run the following 2 commands to properly set up minio. 
+
+```shell
+cd /home/vagrant/
+./mc config host add minio1 http://localhost:9000 admin allyours3arebelongtous
+sudo ./mc policy download minio1/samples/
+```
+
+The first line configures our current minio instance and the second line allows for the content of our samples/ bucket to be downloaded.
+
 **Holmes-Storage**
 
 Due to a bug in the source code, you will need to create the keyspace for Cassandra manually in order to initiate Holmes-Storage. To do so, you need to run the following commands:
@@ -55,6 +67,7 @@ Holmes-TOTEM is an orchestrator and central point of reference for the feature e
 
 To run the Totem planner (use tmux):
 ```shell
+cd /home/vagrant/HolmesProcessing/Holmes-Totem/
 java -jar ./target/scala-2.11/totem-assembly-0.5.0.jar
 ```
 
@@ -78,18 +91,6 @@ cd /home/vagrant/HolmesProcessing/go/src/github.com/HolmesProcessing/Holmes-Gate
 ./Holmes-Gateway --config config/gateway.conf
 ```
 
-**Minio Setup**
-
-After Storage is successfully running in the background, you need to run the following 2 commands to properly set up minio. 
-
-```shell
-cd /home/vagrant/
-./mc config host add minio1 http://localhost:9000 admin allyours3arebelongtous
-sudo ./mc policy download minio1/samples/
-```
-
-The first line configures our current minio instance and the second line allows for the content of our samples/ bucket to be downloaded.
-
 **Optional Setup Notes**
 
 If you want to access the Web UI for RabbitMQ run the following command and then create the file `/etc/rabbitmq/rabbitmq.conf` with the content `loopback_users = none`:
@@ -97,6 +98,10 @@ If you want to access the Web UI for RabbitMQ run the following command and then
 ```shell
 sudo rabbitmq-plugins enable rabbitmq_management
 ```
+
+## How to Store Samples using Storage
+
+TBD
 
 ## How to Submit Jobs
 

@@ -7,7 +7,7 @@ import json, os
 #  - etc
 
 DOMAIN_FLAG = False
-IP_FLAG = True
+IP_FLAG = False
 FILE_FLAG = True
 
 URI = "http://localhost:9000/samples/"
@@ -35,13 +35,13 @@ channel.queue_declare(queue='totem_input',
 # TODO: add some more test cases. IPv6, domain with a subdomain, etc.
 file_list = []
 if IP_FLAG:
-    file_list.append(("141.110.44.4", "ip"))
+    file_list.append(("8.8.8.8", "ip"))
 if DOMAIN_FLAG:
     file_list.append(("tesla.com", "domain"))
 if FILE_FLAG:
     # We should change these to files that we can provide over github. 
     # Ma-shell has some binary files we could probably use.
-    file_list.append(("gene.zip","file"))
+    file_list.append(("7z1801.exe","file"))
    # file_list.append(("0a4efbe854f1fa444303ca210842e779b55570216f62a4a406c89c564dabaf97", "file"))
    # file_list.append(("2a43108a60fc5db94a001117093b6fff95697a8a5ab9a836b3c33c733c374c29", "file"))
    # file_list.append(("04efbe854f1fa444303ca210842e779b55570216f62a4a406c89c564dabaf97", "file")) #fails
@@ -79,7 +79,7 @@ for f in file_list:
     elif f[1] == "file":
         jsontask["download"] = True
         jsontask["tasks"] = {
-            "ZIPMETA": []
+            "PEINFO": []
            # "GOGADGET": [],
            # "OBJDUMP": [],
            # "PEID": [],
