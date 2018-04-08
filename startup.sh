@@ -8,9 +8,9 @@ mkdir src pkg bin
 export GOROOT=/usr/lib/go-1.9
 export GOPATH=/home/vagrant/HolmesProcessing/go
 export PATH=/usr/lib/go-1.9/bin/:$PATH
-#echo "GOROOT=/usr/lib/go-1.9" >> .bashrc
-#echo "PATH=/usr/lib/go-1.9/bin/:$PATH" >> .bashrc
-#echo "GOPATH=/home/vagrant/HolmesProcessing/go" >> .bashrc
+echo "GOROOT=/usr/lib/go-1.9" >> .bashrc
+echo "PATH=/usr/lib/go-1.9/bin/:$PATH" >> .bashrc
+echo "GOPATH=/home/vagrant/HolmesProcessing/go" >> .bashrc
 
 #load Go projects: Storage, Gateway, Totem-Dynamic, Toolbox
 cd /home/vagrant/HolmesProcessing/go/
@@ -31,6 +31,8 @@ go build
 cd /home/vagrant/HolmesProcessing/go/src/github.com/HolmesProcessing/Holmes-Gateway/
 go build
 cd /home/vagrant/HolmesProcessing/go/src/github.com/HolmesProcessing/Holmes-Totem-Dynamic/
+go build
+cd /home/vagrant/HolmesProcessing/go/src/github.com/HolmesProcessing/Holmes-Toolbox/
 go build
 
 #upload configurations for Totem, Storage, Gateway, Totem-Dynamic
